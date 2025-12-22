@@ -12,8 +12,20 @@ bot.api.setMyCommands([
 ])
 
 bot.command('start', async (ctx) => {
-    await ctx.reply('Вас вітає Покрівля та фасасд Кропивницького')
+    await ctx.reply('Вас вітає Покрівля та фасад Кропивницького')
 })
+
+// bot.command('start', async (ctx) => {
+//     await ctx.reply('Вас вітає Покрівля та фасад Кропивницького', {
+//         reply_parameters: { message_id: ctx.msg.message_id }
+//     })
+// })
+
+// bot.command('start', async (ctx) => {
+//     await ctx.reply('Вас вітає Покрівля та фасад Кропивницького.  <a href="https://bud-express.in.ua/categories/d48c9976-24ce-49ff-96fd-2bf5f5e9bd31">Детальніше</a>', {
+//         parse_mode: 'HTML'
+//     })
+// })
 
 bot.command(['say_hello', 'hello', 'say_hi'], async (ctx) => {
     await ctx.reply('Hello!')
@@ -91,6 +103,39 @@ bot.hears([/ctx/], async (ctx) => {
     // console.log(ctx.msg)
     console.log(ctx.from)
 })
+
+bot.hears([/id/], async (ctx) => {
+    await ctx.reply(`Ваш id: ${ctx.from.id}`)
+
+})
+
+
+//link
+// bot.hears([/link/], async (ctx) => {
+//     await ctx.reply('Вас вітає Покрівля та фасад Кропивницького.  <a href="https://bud-express.in.ua/categories/d48c9976-24ce-49ff-96fd-2bf5f5e9bd31">Детальніше</a>', {
+//         parse_mode: 'HTML'
+//     })
+
+// })
+
+bot.hears([/link/], async (ctx) => {
+    await ctx.reply('Вас вітає Покрівля та фасад Кропивницького.  \
+        <a class="tg-spoiler" href="https://bud-express.in.ua/categories/d48c9976-24ce-49ff-96fd-2bf5f5e9bd31">\
+        Детальніше</a> <span class="tg-spoiler"> span </span>', {
+        parse_mode: 'HTML'
+    })
+
+})
+
+bot.hears([/link2/], async (ctx) => {
+    await ctx.reply('Вас вітає Покрівля та фасад Кропивницького.  \
+        <a class="tg-spoiler" href="https://bud-express.in.ua/categories/d48c9976-24ce-49ff-96fd-2bf5f5e9bd31">\
+        Детальніше</a> <span class="tg-spoiler"> span </span>', {
+        parse_mode: 'MarkdownV2'
+    })
+
+})
+
 
 
 
