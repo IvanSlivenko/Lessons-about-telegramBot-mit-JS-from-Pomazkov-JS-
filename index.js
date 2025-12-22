@@ -15,19 +15,83 @@ bot.command('start', async (ctx) => {
     await ctx.reply('Вас вітає Покрівля та фасасд Кропивницького')
 })
 
-// bot.on('message', async (ctx) => {
-//     await ctx.reply('Тут пізніше буде Повідомлення')
-// });
-
-
-
 bot.command(['say_hello', 'hello', 'say_hi'], async (ctx) => {
     await ctx.reply('Hello!')
+})
+
+bot.command(['about'], async (ctx) => {
+    await ctx.reply('Інформація про компанію.')
 })
 
 bot.command(['call_my'], async (ctx) => {
     await ctx.reply('Доброго дня, ваша замовлення прийняте, ми вам  зателефонуємо протягом 15 хв. Дякуємо за цікавсть до нашої компанії.')
 })
+
+
+// bot.on('message', async (ctx) => {
+//     await ctx.reply('Тут пізніше буде Повідомлення')
+// });
+
+// bot.on('message:entities:url', async (ctx) => {
+//     await ctx.reply('Тут пізніше буде відповідь на URL')
+// });
+
+// bot.on('::url', async (ctx) => {
+//     await ctx.reply('Тут пізніше буде відповідь на URL')
+// });
+
+// bot.on('msg').filter((ctx) => {
+//     return ctx.from.id !== 252525
+// }, async (ctx) => {
+//     await ctx.reply('Ваш id не дорівнює 252525')
+// })
+
+// bot.on('message:text', async (ctx) => {
+//     await ctx.reply('Тут пізніше буде відповідь на текстовий запит')
+// });
+
+// bot.on(':photo').on('::hashtag', async (ctx) => {
+//     await ctx.reply('Тут пізніше буде відповідь на :photo чи :hashtag ')
+// })
+
+// bot.on([':media', ':photo'], async (ctx) => {
+//     await ctx.reply('Тут пізніше буде відповідь на запит-media чи фото')
+// });
+
+// bot.on('message:photo', async (ctx) => {
+//     await ctx.reply('Тут пізніше буде відповідь на запит-картинку')
+// });
+
+// bot.on(':voice', async (ctx) => {
+//     await ctx.reply('Тут пізніше буде відповідь на голосове повідомлення')
+// });
+
+bot.hears('вікно', async (ctx) => {
+    await ctx.reply('так вікна продаємо')
+})
+
+bot.hears('профіль', async (ctx) => {
+    await ctx.reply('так профіль продаємо')
+})
+
+bot.hears(['сайдинг', 'водосток'], async (ctx) => {
+    await ctx.reply('асортимент складу пластику')
+})
+
+bot.hears([/хрінь/, /фігня/], async (ctx) => {
+    await ctx.reply('ви вжаваєте нецензурні слова')
+})
+
+bot.hears([/саморіз/, /цвях/, /болт/], async (ctx) => {
+    await ctx.reply('Пропонуємо метизи для вашого будівництва чи ремонту')
+})
+
+bot.hears([/ctx/], async (ctx) => {
+    await ctx.reply('ctx sending to terminal')
+    // console.log(ctx.msg)
+    console.log(ctx.from)
+})
+
 
 
 
