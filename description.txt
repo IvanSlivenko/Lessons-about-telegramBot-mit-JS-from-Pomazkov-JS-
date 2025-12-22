@@ -1,0 +1,22 @@
+https://youtu.be/q-AFR0D7Vuw
+
+--------------------------------------------
+PiFKropyvnytskyi[bot]
+PiFKropyvnytskyi_bot
+
+Use this token to access the HTTP API:
+8012160214:AAFWOIM3V7505PTf2x5zzuw0-mGIHKqnchM
+
+npm init -y
+
+npm i grammy dotenv nodemon 
+
+
+
+
+
+--------------------------------------------
+00 : 18 : 34
+
+
+npm run start -------> start bot
