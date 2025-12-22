@@ -127,15 +127,19 @@ bot.hears([/link/], async (ctx) => {
 
 })
 
-bot.hears([/link2/], async (ctx) => {
-    await ctx.reply('Вас вітає Покрівля та фасад Кропивницького.  \
-        <a class="tg-spoiler" href="https://bud-express.in.ua/categories/d48c9976-24ce-49ff-96fd-2bf5f5e9bd31">\
-        Детальніше</a> <span class="tg-spoiler"> span </span>', {
+bot.hears([/mdv2/], async (ctx) => {
+    await ctx.reply('Вас вітає *Покрівля та фасад* _Кропивницького_', {
         parse_mode: 'MarkdownV2'
     })
-
 })
 
+bot.hears([/ref/], async (ctx) => {
+    await ctx.reply('Вас вітає *Покрівля та фасад* _Кропивницького_ [Деталі\\.\\.\\.]\
+        \\(https://bud\\-express\\.in\\.ua/categories/d48c9976\\-24ce\\-49ff\\-96fd\\-2bf5f5e9bd31\\)', {
+        parse_mode: 'MarkdownV2',
+        disable_web_page_preview: true
+    })
+})
 
 
 
