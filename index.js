@@ -17,6 +17,8 @@ bot.api.setMyCommands([
     { command: 'share', description: 'Кастомні кнопки' },
     { command: 'inline_keyboard', description: 'Онлайн кнопки' },
     { command: 'inline_keyboard_two', description: 'Онлайн кнопки 2' },
+    { command: 'inline_keyboard_thry', description: 'Онлайн кнопки 3' },
+    { command: 'inline_keyboard_four', description: 'Онлайн кнопки 4' },
 
 
 ])
@@ -288,10 +290,31 @@ bot.on('callback_query:data', async (ctx) => {
 })
 
 //------------------------------------------------------------------------------ inline keyboard Thry
-// bot.callbackQuery(['button-1', 'button-2', 'button-3'], async (ctx) => {
-//     await ctx.answerCallbackQuery('Ви обрали цифру !!!')
-//     await ctx.reply('Ви обрали цифру')
-// })
+bot.command('inline_keyboard_thry', async (ctx) => {
+    const inlineKeyboardThry = new InlineKeyboard()
+        .text('7', 'button-7').row()
+        .text('8', 'button-8').row()
+        .text('9', 'button-9')
+
+    await ctx.reply('Оберіть цифру', {
+        reply_markup: inlineKeyboardThry
+    })
+})
+
+bot.callbackQuery(/button-[7-9]/, async (ctx) => {
+    await ctx.answerCallbackQuery()
+    await ctx.reply(`Ви натиснули на кнопку: ${ctx.callbackQuery.data}`)
+})
+
+//------------------------------------------------------------------------------ inline keyboard Four
+bot.command('inline_keyboard_four', async (ctx) => {
+    const inlineKeyboardFour = new InlineKeyboard().url('Bud Express', 'https://bud-express.in.ua/categories/d48c9976-24ce-49ff-96fd-2bf5f5e9bd31')
+
+
+    await ctx.reply('Натисніть', {
+        reply_markup: inlineKeyboardFour
+    })
+})
 
 // ------------------------------------------------------------ ErrorHandler
 
