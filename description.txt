@@ -16,7 +16,7 @@ npm i grammy dotenv nodemon
 
 
 --------------------------------------------
-00 : 38 : 48
+00 : 58 : 20
 
 
 npm run start -------> start bot
