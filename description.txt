@@ -25,9 +25,10 @@ git init
 git add .
 git commit -m "creted bot"
 git remote add origin https://github.com/IvanSlivenko/Lessons-about-telegramBot-mit-JS-from-Pomazkov-JS-.git 
+git push
 
 --------------------------------------------
-01 : 01 : 33
+01 : 12 : 31
 
 
 npm run start -------> start bot
