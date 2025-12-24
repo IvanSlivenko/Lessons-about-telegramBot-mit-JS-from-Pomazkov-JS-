@@ -15,6 +15,14 @@ npm i @grammyjs/hydrate
 
 
 
+--------------------------------------------
+
+url repository
+https://github.com/IvanSlivenko/Lessons-about-telegramBot-mit-JS-from-Pomazkov-JS-.git
+
+--------------------------------------------
+git init
+
 
 
 --------------------------------------------
