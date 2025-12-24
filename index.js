@@ -1,11 +1,15 @@
 require('dotenv').config();
 const { Bot, GrammyError, HttpError, Keyboard, InlineKeyboard } = require('grammy');
+const { hydrate } = require('@grammyjs/hydrate')
 
 // ---------------------------------------------- Created new Bot
 const bot = new Bot(process.env.BOT_API_KEY)
 
+bot.use(hydrate())
+
 bot.api.setMyCommands([
     { command: 'start', description: 'Запуск бота' },
+    { command: 'menu', description: 'Отримати меню' },
     { command: 'hello', description: 'Отримати привітання' },
     { command: 'about', description: 'Інформація про нас' },
     { command: 'call_my', description: 'Зателефонуйте мені' },
@@ -19,6 +23,7 @@ bot.api.setMyCommands([
     { command: 'inline_keyboard_two', description: 'Онлайн кнопки 2' },
     { command: 'inline_keyboard_thry', description: 'Онлайн кнопки 3' },
     { command: 'inline_keyboard_four', description: 'Онлайн кнопки 4' },
+    { command: 'inline_keyboard_five', description: 'Онлайн кнопки 5' },
 
 
 ])
@@ -26,6 +31,47 @@ bot.api.setMyCommands([
 bot.command('start', async (ctx) => {
     await ctx.reply('Вас вітає Покрівля та фасад Кропивницького')
 })
+
+// -------------------------------------------------- menu back to
+const menuKeyboard = new InlineKeyboard().text('Статус замовлення', 'order-status').text('Звернутись до менеджера', 'support');
+const backKeyboard = new InlineKeyboard().text('Повернутись в меню', 'back');
+bot.command('menu', async (ctx) => {
+    await ctx.reply('Оберіть пункт меню', {
+        reply_markup: menuKeyboard,
+    })
+})
+
+bot.callbackQuery('order-status', async (ctx) => {
+    await ctx.callbackQuery.message.editText('Статус замовлення: в роботі', {
+        reply_markup: backKeyboard
+    })
+    await ctx.answerCallbackQuery()
+
+    // await ctx.api.editMessageText(
+    //     ctx.chat.id,
+    //     ctx.update.callback_query.message.message_id,
+    //     'Статус замовлення: в роботі',
+    //     {
+    //         reply_markup: backKeyboard
+    //     }
+
+    // )
+})
+
+bot.callbackQuery('support', async (ctx) => {
+    await ctx.callbackQuery.message.editText('Напишіть ваше питання', {
+        reply_markup: backKeyboard
+    })
+    await ctx.answerCallbackQuery()
+})
+
+bot.callbackQuery('back', async (ctx) => {
+    await ctx.callbackQuery.message.editText('Оберіть пункт меню', {
+        reply_markup: menuKeyboard
+    })
+    await ctx.answerCallbackQuery()
+})
+//------------------------------------------------------------------------------------
 
 // bot.command('start', async (ctx) => {
 //     await ctx.reply('Вас вітає Покрівля та фасад Кропивницького', {
@@ -308,11 +354,21 @@ bot.callbackQuery(/button-[7-9]/, async (ctx) => {
 
 //------------------------------------------------------------------------------ inline keyboard Four
 bot.command('inline_keyboard_four', async (ctx) => {
-    const inlineKeyboardFour = new InlineKeyboard().url('Bud Express', 'https://bud-express.in.ua/categories/d48c9976-24ce-49ff-96fd-2bf5f5e9bd31')
+    const inlineKeyboardFour = new InlineKeyboard().url('judo Uman', 'https://t.me/+GIJ9UQSxhspmYzg6')
 
 
     await ctx.reply('Натисніть', {
         reply_markup: inlineKeyboardFour
+    })
+})
+
+//------------------------------------------------------------------------------ inline keyboard Five
+bot.command('inline_keyboard_five', async (ctx) => {
+    const inlineKeyboardFive = new InlineKeyboard().url('judo Uman', 'https://t.me/+GIJ9UQSxhspmYzg6')
+
+
+    await ctx.reply('Натисніть 5', {
+        reply_markup: inlineKeyboardFive
     })
 })
 
