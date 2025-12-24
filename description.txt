@@ -22,8 +22,9 @@ https://github.com/IvanSlivenko/Lessons-about-telegramBot-mit-JS-from-Pomazkov-J
 
 --------------------------------------------
 git init
-
-
+git add .
+git commit -m "creted bot"
+git remote add origin https://github.com/IvanSlivenko/Lessons-about-telegramBot-mit-JS-from-Pomazkov-JS-.git 
 
 --------------------------------------------
 01 : 01 : 33
